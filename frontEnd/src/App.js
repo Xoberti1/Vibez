@@ -5,8 +5,8 @@ import concerts from "./pages/concerts";
 import chatroom from "./pages/chatroom";
 import register from "./pages/register";
 import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
 import Wrapper from "./components/Wrapper";
+import Footer from "./components/Footer";
 
 const App = () =>
   <Router>
