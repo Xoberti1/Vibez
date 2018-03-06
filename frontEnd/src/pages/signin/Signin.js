@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import Passport from "../../utilities/"
 
 class Signin extends Component {
 
@@ -21,9 +22,9 @@ class Signin extends Component {
     render(){
         return(
             <div>
-                <form onSubmit={this.formSubmit}>
-                    <input value="this.state.username" name="username" placeholder="username" />
-                    <input value="this.state.password" name="password" placeholder="password" />
+                <form action="login" method="post" onSubmit={this.formSubmit}>
+                    <input value="this.state.username" name="username" placeholder="username" type="text"/>
+                    <input value="this.state.password" name="password" placeholder="password" type="password"/>
                     <button type="submit"></button>
                 </form>
             </div>
