@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const routes = require("./routes");
+// const routes = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -11,11 +11,11 @@ app.use(bodyParser.json());
 // Serve up static assets
 app.use(express.static("frontEnd/src"));
 // Add routes, both API and view
-app.use(routes);
+// app.use(routes);
 
-// app.get("/", function(req, res){
-//     res.sendFile(__dirname + "/frontEnd/build/index.html")
-// })
+app.get("/", function(req, res){
+    res.sendFile(__dirname + "/frontEnd/build/index.html")
+});
 
 // // Set up promises with mongoose
 // mongoose.Promise = global.Promise;
