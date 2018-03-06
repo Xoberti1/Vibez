@@ -15,7 +15,7 @@ app.use(express.static("frontEnd/src"));
 
 app.get("/", function(req, res){
     res.sendFile(__dirname + "/frontEnd/build/index.html")
-})
+});
 
 // // Set up promises with mongoose
 // mongoose.Promise = global.Promise;
