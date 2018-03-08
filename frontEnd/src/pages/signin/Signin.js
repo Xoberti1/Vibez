@@ -1,5 +1,7 @@
 import React, {Component} from "react";
-import Passport from "../../utilities/"
+import Passport from "./../../utilities/passport";
+import { Col, Row, Container } from "../../components/Grid";
+import { Input, FormBtn } from "../../components/Form";
 
 class Signin extends Component {
 
@@ -11,23 +13,52 @@ class Signin extends Component {
         }
     }
 
-    formSubmit(event){
-        event.preventDefault();
+    handleInputChange = event => {
+        const { name, value } = event.target;
         this.setState({
-            username: event.username,
-            password: event.password
-        })
-    }
+            [name]: value
+        });
+    };
+
+    handleFormSubmit = event => {
+        event.preventDefault();
+        if (this.state.username && this.state.password) {
+            Passport.post({
+                username: this.state.username,
+                password: this.state.password,
+            })
+                .then(console.log("this worked"))
+                .catch(err => console.log(err));
+        }
+    };
 
     render(){
         return(
-            <div>
-                <form action="login" method="post" onSubmit={this.formSubmit}>
-                    <input value="this.state.username" name="username" placeholder="username" type="text"/>
-                    <input value="this.state.password" name="password" placeholder="password" type="password"/>
-                    <button type="submit"></button>
-                </form>
-            </div>
+                <Container fluid>
+                    <Row>
+                        <Col size="md-6">
+
+                            <form>
+                                <Input
+                                    value={this.state.username}
+                                    onChange={this.handleInputChange}
+                                    name="username"
+                                    placeholder="Username (required)"
+                                />
+                                <Input
+                                    value={this.state.password}
+                                    onChange={this.handleInputChange}
+                                    name="password"
+                                    placeholder="Password(required)"
+                                />
+                                <FormBtn
+                                    disabled={!(this.state.username && this.state.password)}
+                                    onClick={this.handleFormSubmit}
+                                />
+                            </form>
+                        </Col>
+                    </Row>
+                </Container>
         )
     }
 

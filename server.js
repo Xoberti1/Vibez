@@ -13,7 +13,7 @@ app.use(express.static("frontEnd/src"));
 // Add routes, both API and view
 // app.use(routes);
 
-app.get("/", function(req, res){
+app.get("*", function(req, res){
     res.sendFile(__dirname + "/frontEnd/build/index.html")
 });
 
