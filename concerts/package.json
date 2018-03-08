@@ -1,0 +1,24 @@
+{
+  "name": "vibez",
+  "version": "1.0.0",
+  "description": "project 3 app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Xoberti1/Vibez.git"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "Victor Montemayor",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Xoberti1/Vibez/issues"
+  },
+  "homepage": "https://github.com/Xoberti1/Vibez#readme"
+}
+
+

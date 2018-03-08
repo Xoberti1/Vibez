@@ -1,9 +1,10 @@
+import react from "react";
+
 var page = 0;
 
 function getEvents(page) {
-
-  $('#events-panel').show();
-  $('#attraction-panel').hide();
+  $("#events-panel").show();
+  $("#attraction-panel").hide();
 
   if (page < 0) {
     page = 0;
@@ -12,13 +13,13 @@ function getEvents(page) {
   if (page > 0) {
     if (page > getEvents.json.page.totalPages-1) {
       page=0;
-      return;
     }
   }
   
   $.ajax({
     type:"GET",
-    url:"https://app.ticketmaster.com/discovery/v2/events.json?apikey=5QGCEXAsJowiCI4n1uAwMlCGAcSNAEmG&size=4&page="+page,
+    url:"https://app.ticketmaster.com/discovery/v2/events.json?apikey=VpgxEffTTZzOJdBoJ3suAvxzt7gPDA8N"+page,
+    
     async:true,
     dataType: "json",
     success: function(json) {
@@ -32,7 +33,7 @@ function getEvents(page) {
 }
 
 function showEvents(json) {
-  var items = $('#events .list-group-item');
+  var items = $("#events .list-group-item");
   items.hide();
   var events = json._embedded.events;
   var item = items.first();
@@ -40,7 +41,7 @@ function showEvents(json) {
     item.children('.list-group-item-heading').text(events[i].name);
     item.children('.list-group-item-text').text(events[i].dates.start.localDate);
     try {
-      item.children('.venue').text(events[i]._embedded.venues[0].name + " in " + events[i]._embedded.venues[0].city.name);
+      item.children(".venue").text(events[i]._embedded.venues[0].name + " in " + events[i]._embedded.venues[0].city.name);
     } catch (err) {
       console.log(err);
     }
@@ -58,18 +59,18 @@ function showEvents(json) {
   }
 }
 
-$('#prev').click(function() {
+$("#prev").click(function() {
   getEvents(--page);
 });
 
-$('#next').click(function() {
+$("#next").click(function() {
   getEvents(++page);
 });
 
 function getAttraction(id) {
   $.ajax({
     type:"GET",
-    url:"https://app.ticketmaster.com/discovery/v2/attractions/"+id+".json?apikey=VpgxEffTTZzOJdBoJ3suAvxzt7gPDA8N",
+    url:"https://app.ticketmaster.com/discovery/v2/events"+id+".json?apikey=VpgxEffTTZzOJdBoJ3suAvxzt7gPDA8N",
     async:true,
     dataType: "json",
     success: function(json) {
@@ -82,16 +83,16 @@ function getAttraction(id) {
 }
 
 function showAttraction(json) {
-  $('#events-panel').hide();
-  $('#attraction-panel').show();
+  $("#events-panel").hide();
+  $("#attraction-panel").show();
   
-  $('#attraction-panel').click(function() {
+  $("#attraction-panel").click(function() {
     getEvents(page);
   });
   
-  $('#attraction .list-group-item-heading').first().text(json.name);
-  $('#attraction img').first().attr('src',json.images[0].url);
-  $('#classification').text(json.classifications[0].segment.name + " - " + json.classifications[0].genre.name + " - " + json.classifications[0].subGenre.name);
+  $("#attraction .list-group-item-heading").first().text(json.name);
+  $("#attraction img").first().attr('src',json.images[0].url);
+  $("#classification").text(json.classifications[0].segment.name + " - " + json.classifications[0].genre.name + " - " + json.classifications[0].subGenre.name);
 }
 
 getEvents(page);
