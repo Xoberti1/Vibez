@@ -9,7 +9,7 @@ import React, {Component} from 'react';
   render () {
     return (
     <div>
-      <Form ref='simpleForm'>
+      {/* <Form ref='simpleForm'>
           <Field
             name='city'
             label='Enter City name'
@@ -20,7 +20,7 @@ import React, {Component} from 'react';
             label='Enter State name'
             type='text'
           />
-      </Form>
+      </Form> */}
       <button onClick={this.onClickHandler.bind(this)}>Submit</button>
     </div>
 
