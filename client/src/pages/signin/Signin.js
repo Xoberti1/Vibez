@@ -37,7 +37,6 @@ class Signin extends Component {
             <Container fluid>
                 <Row>
                     <Col size="md-6">
-
                         <form>
                             <Input
                                 value={this.state.username}
