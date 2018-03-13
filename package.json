@@ -1,12 +1,16 @@
 {
   "name": "project3-2",
   "version": "1.0.0",
+  "proxy": "http://localhost.com/3001",
   "description": "",
   "main": "server.js",
   "scripts": {
+    "server": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "client": "node scripts/start-client.js",
+    "start": "concurrently \"nodemon server.js\" \"npm client\""
   },
+
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -16,5 +20,9 @@
     "passport": "^0.4.0",
     "passport-local": "^1.0.0"
 
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.1",
+    "nodemon": "1.11.1"
   }
 }
