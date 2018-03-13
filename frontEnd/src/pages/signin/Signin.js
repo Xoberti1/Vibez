@@ -23,7 +23,7 @@ class Signin extends Component {
     handleFormSubmit = event => {
         event.preventDefault();
         if (this.state.username && this.state.password) {
-            Passport.post({
+            Passport.authenticateUser({
                 username: this.state.username,
                 password: this.state.password,
             })
@@ -34,31 +34,32 @@ class Signin extends Component {
 
     render(){
         return(
-                <Container fluid>
-                    <Row>
-                        <Col size="md-6">
+            <Container fluid>
+                <Row>
+                    <Col size="md-6">
 
-                            <form>
-                                <Input
-                                    value={this.state.username}
-                                    onChange={this.handleInputChange}
-                                    name="username"
-                                    placeholder="Username (required)"
-                                />
-                                <Input
-                                    value={this.state.password}
-                                    onChange={this.handleInputChange}
-                                    name="password"
-                                    placeholder="Password(required)"
-                                />
-                                <FormBtn
-                                    disabled={!(this.state.username && this.state.password)}
-                                    onClick={this.handleFormSubmit}
-                                />
-                            </form>
-                        </Col>
-                    </Row>
-                </Container>
+                        <form>
+                            <Input
+                                value={this.state.username}
+                                onChange={this.handleInputChange}
+                                name="username"
+                                placeholder="Username (required)"
+                            />
+                            <Input
+                                value={this.state.password}
+                                onChange={this.handleInputChange}
+                                name="password"
+                                placeholder="Password(required)"
+                            />
+                            <FormBtn
+                                disabled={!(this.state.username && this.state.password)}
+                                onClick={this.handleFormSubmit}
+                            >Submit
+                            </FormBtn>
+                        </form>
+                    </Col>
+                </Row>
+            </Container>
         )
     }
 
