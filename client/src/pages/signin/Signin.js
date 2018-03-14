@@ -27,7 +27,8 @@ class Signin extends Component {
                 username: this.state.username,
                 password: this.state.password,
             })
-                .then(console.log("this worked"))
+                // .then(console.log("this worked"))
+                .then((userData)=> console.log(userData))
                 .catch(err => console.log(err));
         }
     };

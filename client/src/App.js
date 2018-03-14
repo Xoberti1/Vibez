@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Signin from "./pages/signin/Signin";
-// import concerts from "./pages/concerts";
-// import chatroom from "./pages/chatroom";
-// import register from "./pages/register";
+// import Concerts from "./pages/concerts";
+// import Chatroom from "./pages/chatroom";
+// import Register from "./pages/register";
 // import Navbar from "./components/Navbar";
 // import Wrapper from "./components/Wrapper";
 // import Footer from "./components/Footer";
@@ -13,10 +13,10 @@ const App = () =>
     <div>
       {/* <Navbar /> */}
         <Route exact path="/" component={Signin} />
-        {/* <Route exact path="/signin" component={Signin} />
-        <Route exact path="/concerts" component={Concerts} />
-        <Route exact path="/chatroom" component={Chatroom} />
-        <Route exact path="/register" component={Register} />
+        <Route exact path="/signin" component={Signin} />
+        {/* <Route exact path="/concerts" component={Concerts} /> */}
+        {/* <Route exact path="/chatroom" component={Chatroom} /> */}
+        {/* <Route exact path="/register" component={Register} /> */}
       {/* <Footer /> */}
     </div>
   </Router>;
