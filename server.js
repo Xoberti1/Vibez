@@ -9,10 +9,12 @@ const PORT = process.env.PORT || 3001;
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 // Serve up static assets
-app.use(express.static("client/src"));
+app.use(express.static("client/build"));
 // Add routes, both API and view
 app.use(routes);
-
+app.get("/", function (req, res) {
+    res.sendFile(__dirname + "/client/build/index.html")
+});
 app.get("*", function(req, res){
     res.sendFile(__dirname + "/client/build/index.html")
 });
