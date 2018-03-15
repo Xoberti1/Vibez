@@ -9,12 +9,9 @@
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.1",
-<<<<<<< HEAD
     "socket.io": "^2.0.4",
-    "socket.io-client": "^2.0.4"
-=======
+    "socket.io-client": "^2.0.4",
     "simple-react-forms": "^1.5.0"
->>>>>>> 496e4e26330df984840275a77bb19c4eaf41ac55
   },
   "scripts": {
     "start": "react-scripts start",
