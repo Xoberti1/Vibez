@@ -3,12 +3,12 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Signin from "./pages/signin/Signin";
 // import concerts from "./pages/concerts";
-import chatroom from "./pages/chatroom/frontchat.js";
+// import chatroom from "./pages/chatroom/frontchat.js";
 // import register from "./pages/register";
 // import Signin from "./pages/signin/Signin";
 // import concerts from "./page/s/concerts";
 // import chatroom from "./pages/chatroom";
-import index from "./pages/registration/index";
+import register from "./pages/registration/registration";
 // import Navbar from "./components/Navbar";
 // import Wrapper from "./components/Wrapper";
 // import Footer from "./components/Footer";
@@ -20,8 +20,8 @@ const App = () =>
         <Route exact path="/" component={Signin} />
         {/* <Route exact path="/signin" component={Signin} /> */}
         {/* <Route exact path="/concerts" component={Concerts} /> */}
-        <Route exact path="/chatroom" component={chatroom} />
-        {/* <Route exact path="/register" component={Register} /> */}
+        {/* <Route exact path="/chatroom" component={chatroom} /> */}
+        <Route exact path="/register" component={register} />
       {/* { <Footer /> } */}
 
     </div>
