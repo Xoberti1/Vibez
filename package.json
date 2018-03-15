@@ -5,9 +5,12 @@
   "main": "server.js",
   "scripts": {
     "server": "node server.js",
+    "build": "node backEnd/scripts/build.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "client": "node backEnd/scripts/start-client.js",
-    "start": "concurrently \"nodemon server.js\" \"npm run client\""
+    "start": "concurrently \"nodemon server.js\" \"npm run client\"",
+    "push": "git add . && git commit -m \"deploy\" && git push",
+    "deploy": "npm run build && git push heroku master"
   },
   "author": "",
   "license": "ISC",
@@ -19,7 +22,7 @@
     "mongoose": "^5.0.7",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
-    "reactstrap": "^4.8.0"
+    "simple-react-forms": "^1.5.0"
   },
   "devDependencies": {
     "concurrently": "^3.5.1",

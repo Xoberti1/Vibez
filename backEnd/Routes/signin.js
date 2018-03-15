@@ -2,14 +2,15 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 const passport = require("passport");
-const router = express.Router();
+const authRouter = express.Router();
 
-router.post('/login',
-    passport.authenticate('local'),
+authRouter.post('/login',
+    //passport.authenticate('local'),
     function (req, res) {
         // If this function gets called, authentication was successful.
-        // `req.user` contains the authenticated user.
-        res.redirect('/users/' + req.user.username);
+        // `req.` contains the authenticated user.
+        res.redirect('/users/' + req.username);
+        console.log("you signed in")
     });
 
-module.exports = router
+module.exports = authRouter

@@ -4,6 +4,6 @@ export default {
 
     // Saves a book to the database
     authenticateUser: function (userData) {
-        return axios.post("/Routes/signin", userData);
+        return axios.post("/auth/login", userData);
     }
 };
