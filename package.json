@@ -10,7 +10,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "client": "node backEnd/scripts/start-client.js",
     "start": "concurrently \"nodemon server.js\" \"npm run client\"",
-    "deploy": "git add . && git commit -m \"deploy\" && git push"
+    "push": "git add . && git commit -m \"deploy\" && git push",
+    "deploy": "npm run build && git push heroku master"
   },
   "author": "",
   "license": "ISC",
