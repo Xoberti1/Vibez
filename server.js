@@ -19,15 +19,15 @@ app.get("*", function(req, res){
     res.sendFile(__dirname + "/client/build/index.html")
 });
 
-// // Set up promises with mongoose
-// mongoose.Promise = global.Promise;
-// // Connect to the Mongo DB
-// mongoose.connect(
-//     process.env.MONGODB_URI || "mongodb://localhost/vibez",
-//     {
-//         useMongoClient: true
-//     }
-// );
+// Set up promises with mongoose
+mongoose.Promise = global.Promise;
+// Connect to the Mongo DB
+mongoose.connect(
+    process.env.MONGODB_URI || "mongodb://localhost/vibez",
+    {
+        useMongoClient: true
+    }
+);
 
 // Start the API server
 app.listen(PORT, function () {
