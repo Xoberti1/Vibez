@@ -1,7 +1,6 @@
 {
   "name": "project3-2",
   "version": "1.0.0",
-  "proxy": "http://localhost.com/3001",
   "description": "",
   "main": "server.js",
   "scripts": {
@@ -16,6 +15,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "ajax": "0.0.4",
+    "axios": "^0.18.0",
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "mongoose": "^5.0.7",
