@@ -6,9 +6,11 @@
   "main": "server.js",
   "scripts": {
     "server": "node server.js",
+    "build": "node backEnd/scripts/build.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "client": "node backEnd/scripts/start-client.js",
-    "start": "concurrently \"nodemon server.js\" \"npm run client\""
+    "start": "concurrently \"nodemon server.js\" \"npm run client\"",
+    "deploy": "git add . && git commit -m \"deploy\" && git push"
   },
   "author": "",
   "license": "ISC",
