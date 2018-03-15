@@ -11,7 +11,6 @@ authRouter.post('/login',
         // `req.` contains the authenticated user.
         res.redirect('/users/' + req.username);
         console.log("you signed in")
-        // return res.json({blah: "blah"})
     });
 
 module.exports = authRouter
