@@ -1,18 +1,22 @@
 {
   "name": "project3-2",
   "version": "1.0.0",
-  "proxy": "http://localhost.com/3001",
   "description": "",
   "main": "server.js",
   "scripts": {
     "server": "node server.js",
+    "build": "node backEnd/scripts/build.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "client": "node backEnd/scripts/start-client.js",
-    "start": "concurrently \"nodemon server.js\" \"npm run client\""
+    "start": "concurrently \"nodemon server.js\" \"npm run client\"",
+    "push": "git add . && git commit -m \"deploy\" && git push",
+    "deploy": "npm run build && git push heroku master"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "ajax": "0.0.4",
+    "axios": "^0.18.0",
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "mongoose": "^5.0.7",
