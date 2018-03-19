@@ -5,6 +5,7 @@ import Passport from "./../../utilities/passport";
 import { Col, Row, Container } from "../../components/Grid";
 import { Input, FormBtn } from "../../components/Form";
 import { Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 
@@ -47,10 +48,10 @@ class Register extends Component {
             })
                 .then((userData)=> console.log(userData))
                 .catch(err => console.log(err));
-                const {isAuthenticated} = this.props;
-                if (isAuthenticated) {
-                  return <Redirect to='../Signin' />;
-                }
+                // const {isAuthenticated} = this.props;
+                // if (isAuthenticated) {
+                //   <Redirect to='/signin' />;
+                // }
             //   }
                 
                 //if not err re-direct to signIn page(.then if(window.relocate))
@@ -96,12 +97,13 @@ class Register extends Component {
                                 name="email"
                                 placeholder="Email(required)"
                             />
-                            <FormBtn
+                           <Link to="/signin"> <FormBtn
                                 disabled={!(this.state.username && this.state.password && this.state.name && this.state.email && this.state.zipCode)}
-                                onClick={this.handleFormSubmit}
+                                // onClick={this.handleFormSubmit}
+
                                 
                             >Submit
-                            </FormBtn>
+                            </FormBtn></Link>
                         </form>
                     </Col>
                 </Row>
