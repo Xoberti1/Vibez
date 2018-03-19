@@ -4,6 +4,9 @@ import React, {Component} from "react";
 import Passport from "./../../utilities/passport";
 import { Col, Row, Container } from "../../components/Grid";
 import { Input, FormBtn } from "../../components/Form";
+import { Redirect } from 'react-router-dom';
+
+
 
 class Register extends Component {
 
@@ -26,8 +29,15 @@ class Register extends Component {
     };
 
     handleFormSubmit = event => {
-        event.preventDefault();
-        if (this.state.username && this.state.password) {
+        // // event.preventDefault();
+        // // state = {
+        // //     redirect: false
+        // //   }
+        // //   handleFormSubmit (); {
+        // //     axios.post(/**/)
+        // //       .then(() => this.setState({ redirect: true }));
+        //   }
+        if (this.state.username && this.state.password && this.state.name && this.state.email && this.state.zipCode) {
             Passport.registerUser({
                 username: this.state.username,
                 password: this.state.password,
@@ -35,10 +45,18 @@ class Register extends Component {
                 zipCode: this.state.zipCode,
                 email: this.state.email
             })
-               
                 .then((userData)=> console.log(userData))
                 .catch(err => console.log(err));
+                const {isAuthenticated} = this.props;
+                if (isAuthenticated) {
+                  return <Redirect to='../Signin' />;
+                }
+            //   }
+                
                 //if not err re-direct to signIn page(.then if(window.relocate))
+                
+                
+                
         }
     };
 
@@ -79,8 +97,9 @@ class Register extends Component {
                                 placeholder="Email(required)"
                             />
                             <FormBtn
-                                disabled={!(this.state.username && this.state.password && this.state)}
+                                disabled={!(this.state.username && this.state.password && this.state.name && this.state.email && this.state.zipCode)}
                                 onClick={this.handleFormSubmit}
+                                
                             >Submit
                             </FormBtn>
                         </form>
