@@ -1,6 +1,7 @@
 import React from 'react';
 // import RegistrationForm from "./registration";
 
+
 class index extends React.Component {
   render() {
     return(
