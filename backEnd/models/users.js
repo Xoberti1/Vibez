@@ -6,7 +6,7 @@ const userSchema = new Schema({
   password: { type: String, required: true },
   email: { type: String, required: true },
   // need to at regx to verify this is actually an email
-  zip: { type: number, min:10000, max: 99999, required: true },
+  zipCode: { type: Number, min:10000, max: 99999, required: true },
   name: { type: String, required: true },
 });
 

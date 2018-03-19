@@ -1,63 +1,11 @@
-// import React from 'react';
-// // import RegistrationForm from "./registration";
 
-// class index extends React.Component {
-//   render() {
-//     return(
-//       <div>
-//           <h1>Registration Form</h1>
-//           <form>
-//   <label>
-//     Name:
-//     <input type="text" name="name" />
-//   </label>
-//   <br/>
-//   <label>
-//     Email:
-//     <input type="text" name="email" />
-//   </label>
-//   <br/>
-//   <label>
-//     Create a Username:
-//     <input type="text" name="username" />
-//   </label>
-//   <br/>
-//   <label>
-//   <br/>
-//    Zip Code (Only Houston City Limits):
-//     <input type="text" name="zip" />
-//   </label>
-//   <br/>
-//   <label>
-//   <br/>
-//    Create a Password:
-//     <input type="text" name="password" />
-//   </label>
-//   <br/>
-//   <label>
-//   <br/>
-//    Re-Enter Password:
-//     <input type="text" name="name" />
-//   </label>
-//   <br/>
-  
-
-//   <input type="submit" value="Submit" />
-// </form>
-//         {/* <RegistrationForm/> */}
-//       </div>
-//     );
-//   }
-// }
-
-// export default index;
 
 import React, {Component} from "react";
 import Passport from "./../../utilities/passport";
 import { Col, Row, Container } from "../../components/Grid";
 import { Input, FormBtn } from "../../components/Form";
 
-class index extends Component {
+class Register extends Component {
 
     constructor(props){
         super(props)
@@ -80,13 +28,17 @@ class index extends Component {
     handleFormSubmit = event => {
         event.preventDefault();
         if (this.state.username && this.state.password) {
-            Passport.authenticateUser({
+            Passport.registerUser({
                 username: this.state.username,
                 password: this.state.password,
+                name: this.state.name,
+                zipCode: this.state.zipCode,
+                email: this.state.email
             })
                
                 .then((userData)=> console.log(userData))
                 .catch(err => console.log(err));
+                //if not err re-direct to signIn page(.then if(window.relocate))
         }
     };
 
@@ -100,34 +52,34 @@ class index extends Component {
                                 value={this.state.username}
                                 onChange={this.handleInputChange}
                                 name="username"
-                                placeholder="Username (required)"
+                                placeholder="Username(required)"
                             />
                             <Input
                                 value={this.state.password}
                                 onChange={this.handleInputChange}
                                 name="password"
-                                placeholder="Password(required)"
+                                placeholder="Create a Password(required)"
                             />
                             <Input
-                                value={this.state.password}
+                                value={this.state.name}
                                 onChange={this.handleInputChange}
                                 name="name"
-                                placeholder="name(required)"
+                                placeholder="Name(required)"
                             />
                             <Input
-                                value={this.state.password}
+                                value={this.state.zipCode}
                                 onChange={this.handleInputChange}
                                 name="zipCode"
-                                placeholder="zipCode(required)"
+                                placeholder="Zip Code(required)"
                             />
                             <Input
-                                value={this.state.password}
+                                value={this.state.email}
                                 onChange={this.handleInputChange}
                                 name="email"
-                                placeholder="email(required)"
+                                placeholder="Email(required)"
                             />
                             <FormBtn
-                                disabled={!(this.state.username && this.state.password)}
+                                disabled={!(this.state.username && this.state.password && this.state)}
                                 onClick={this.handleFormSubmit}
                             >Submit
                             </FormBtn>
@@ -140,4 +92,4 @@ class index extends Component {
 
 }
 
-export default index;
+export default Register;

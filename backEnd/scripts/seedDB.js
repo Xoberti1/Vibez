@@ -5,32 +5,45 @@ mongoose.Promise = global.Promise;
 // This file empties the Books collection and inserts the books below
 
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/vibez",
-  {
-    useMongoClient: true
-  }
+  process.env.MONGODB_URI || "mongodb://localhost/vibez"
 );
 
 const userSeed = [
   {
     username: "xoberti",
     password: "catinthehat",
+    email: "xoberti@gmail.com",
+    zipCode: 77077,
+    name: "Xavier Oberti",
   },
   {
-    title: "bhoang",
-    author: "greeneggsandham",
+    username: "bhoang",
+    password: "greeneggsandham",
+    email: "bhoang@gmail.com",
+    zipCode: 77098,
+    name: "Brandon Hoang",
   },
   {
-    title: "vmontemayor",
-    author: "thelorax",
+    username: "vmontemayor",
+    password: "thelorax",
+    email: "vik@gmail.com",
+    zipCode: 77008,
+    name: "Victor Montemayor",
   },
   {
-    title: "atrevino",
-    author: "foxinsox",
+    username: "atrevino",
+    password: "foxinsox",
+    email: "ladskjf@gmail.com",
+    zipCode: 77098,
+    name: "Adrian Trevino",
+ 
   },
   {
-    title: "ihatfield",
-    author: "hoponpop",
+    username: "ihatfield",
+    password: "hoponpop",
+    email: "dasf@gmail.com",
+    zipCode: 77890,
+    name: "Isla Hatfield",
   }
 ];
 
@@ -38,7 +51,7 @@ db.User
   .remove({})
   .then(() => db.User.collection.insertMany(userSeed))
   .then(data => {
-    console.log(data.insertedIds.length + " records inserted!");
+    console.log(data.insertedCount, " records inserted!");
     process.exit(0);
   })
   .catch(err => {
