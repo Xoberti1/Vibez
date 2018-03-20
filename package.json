@@ -12,7 +12,8 @@
     "installDeps": "yarn && cd client && yarn",
     "test": "echo \"Error: no test specified\" && exit 1",
     "push": "git add . && git commit -m \"deploy\" && git push",
-    "deploy": "npm run build && git push heroku master"
+    "deploy": "npm run build && git push heroku master",
+    "seed": "node backEnd/scripts/seedDB.js"
   },
   "author": "",
   "license": "ISC",
