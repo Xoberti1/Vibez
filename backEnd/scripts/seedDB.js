@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const db = require("../models");
+const db = require("../models/users");
 mongoose.Promise = global.Promise;
 
 // This file empties the Books collection and inserts the books below
@@ -15,22 +15,38 @@ const userSeed = [
   {
     username: "xoberti",
     password: "catinthehat",
+    email: "xoberti@gmail.com",
+    zip: "77077",
+    name: "Xavier Oberti",
   },
   {
-    title: "bhoang",
-    author: "greeneggsandham",
+    username: "bhoang",
+    password: "greeneggsandham",
+    email: "bhoang@gmail.com",
+    zip: "77098",
+    name: "Brandon Hoang",
   },
   {
-    title: "vmontemayor",
-    author: "thelorax",
+    username: "vmontemayor",
+    password: "thelorax",
+    email: "vik@gmail.com",
+    zip: "77008",
+    name: "Victor Montemayor",
   },
   {
-    title: "atrevino",
-    author: "foxinsox",
+    username: "atrevino",
+    password: "foxinsox",
+    email: "ladskjf@gmail.com",
+    zip: "77098",
+    name: "Adrian Trevino",
+
   },
   {
-    title: "ihatfield",
-    author: "hoponpop",
+    username: "ihatfield",
+    password: "hoponpop",
+    email: "dasf@gmail.com",
+    zip: "77890",
+    name: "Isla Hatfield",
   }
 ];
 
