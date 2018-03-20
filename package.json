@@ -5,12 +5,10 @@
   "main": "server.js",
   "scripts": {
     "server": "node server.js",
-    "client": "node scripts/start-client.js",
-    "start": "concurrently \"nodemon server.js\" \"npm run client\"",
-    "build": "node scripts/build.js",
-    "seed": "node scripts/seedDB.js",
-    "installDeps": "yarn && cd client && yarn",
+    "build": "node backEnd/scripts/build.js",
     "test": "echo \"Error: no test specified\" && exit 1",
+    "client": "node backEnd/scripts/start-client.js",
+    "start": "concurrently \"nodemon server.js\" \"npm run client\"",
     "push": "git add . && git commit -m \"deploy\" && git push",
     "deploy": "npm run build && git push heroku master"
   },
@@ -23,7 +21,9 @@
     "express": "^4.16.2",
     "mongoose": "^5.0.7",
     "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^5.0.0",
     "simple-react-forms": "^1.5.0"
   },
   "devDependencies": {
