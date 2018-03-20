@@ -10,7 +10,8 @@
     "client": "node backEnd/scripts/start-client.js",
     "start": "concurrently \"nodemon server.js\" \"npm run client\"",
     "push": "git add . && git commit -m \"deploy\" && git push",
-    "deploy": "npm run build && git push heroku master"
+    "deploy": "npm run build && git push heroku master",
+    "seed": "node backEnd/scripts/seedDB.js"
   },
   "author": "",
   "license": "ISC",
