@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const db = require("../models");
+const db = require("../models/users");
 mongoose.Promise = global.Promise;
 
 // This file empties the Books collection and inserts the books below
@@ -36,7 +36,6 @@ const userSeed = [
     email: "ladskjf@gmail.com",
     zipCode: 77098,
     name: "Adrian Trevino",
- 
   },
   {
     username: "ihatfield",

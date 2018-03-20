@@ -1,5 +1,6 @@
 
 
+
 import React, {Component} from "react";
 import Passport from "./../../utilities/passport";
 import { Col, Row, Container } from "../../components/Grid";
@@ -110,7 +111,6 @@ class Register extends Component {
             </Container>
         )
     }
-
 }
 
 export default Register;
